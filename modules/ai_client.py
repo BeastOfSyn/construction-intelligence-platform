@@ -129,7 +129,10 @@ def resolve_api_key(sidebar_key: Optional[str]) -> Optional[str]:
 
 def resolve_model() -> str:
     """Return the configured Gemini model name."""
-    return _secret("GEMINI_MODEL") or C.DEFAULT_MODEL
+    model = _secret("GEMINI_MODEL") or C.DEFAULT_MODEL
+    if model in ("gemini-2.5-flash", "gemini-2.0-flash", "gemini-1.5-flash", "gemini-2.5-flash-lite"):
+        return "gemini-3.5-flash"
+    return model
 
 
 def friendly_error(exc: BaseException) -> str:
