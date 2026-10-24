@@ -1,0 +1,15 @@
+.env*
+*.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.streamlit/secrets.toml
+.streamlit/secrets.*.toml
+!.streamlit/secrets.toml.example
+*.key
+*.pem
+.DS_Store
+*.zip
+*.log
